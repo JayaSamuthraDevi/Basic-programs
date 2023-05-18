@@ -1,0 +1,78 @@
+BUBBLE SORT
+
+for(int i = 0;i < n; i++){
+    for(int j=0;j < n - 1; j++){
+        if(arr[j] > arr[j+1]){
+            int temp = arr[j];
+            arr[j] = arr[j+1];
+            arr[j+1] = temp;
+       }
+    }
+}
+
+---------------
+SELECTION SORT
+
+for(int i=0;i<arr.length; i++) {
+   int minIndex = i;  
+   for(int j=i+1;j<arr.length; j++) {
+      if(arr[j]<arr[minIndex]) {
+        minIndex = j;
+      }
+   }
+   int temp = arr[i];
+   arr[i] = arr[minIndex];
+   arr[minIndex] = temp;
+}
+
+
+
+-------------
+INSERTION SORT
+for(int i = 1;i < n; i++) {
+    int j = i;
+    while(j > 0 && arr[j] < arr[j-1]) {
+        int temp = arr[j];
+        arr[j] = arr[j-1];
+        arr[j-1] = temp;
+        j--;
+    }
+}
+
+--------------------
+QUICK SORT
+public static void quicksort(int[] arr, int low, int high) {
+    if(low >= high) return;
+    int pivotPosition = partition(arr, low, high);
+    quicksort(arr,low, pivotPosition-1);
+    quicksort(arr, pivotPosition+1, high);
+}
+public static int partition(int[] arr, int low, int high) {
+    int pivot = arr[high];
+    int left = low, right = high-1;
+    while(left < right) {
+       while(arr[left]<pivot) {
+            left++;
+       }
+       while(arr[right]>pivot) {
+            right--; 
+       }
+       if(left >= right) {
+            break;
+       }
+       int temp = arr[left];
+       arr[left] = arr[right];
+         arr[right] = temp;
+    }
+    int temp = arr[left];
+    arr[left] = arr[high];
+    arr[high] = temp;
+    return left;
+}
+
+
+----------
+MERGE SORT
+
+
+-----------------
